@@ -1,18 +1,18 @@
-# This is my package ollama-php
+Ollama PHP Library
+============
+This is a PHP library for Ollama. Ollama is an open-source project that serves as a powerful and user-friendly platform for running LLMs on your local
+machine. It acts as a bridge between the complexities of LLM technology and the desire for an accessible and
+customizable AI experience.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/ardagnsrn/ollama-php.svg?style=flat-square)](https://packagist.org/packages/ardagnsrn/ollama-php)
-[![Tests](https://img.shields.io/github/actions/workflow/status/ardagnsrn/ollama-php/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ardagnsrn/ollama-php/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/ardagnsrn/ollama-php.svg?style=flat-square)](https://packagist.org/packages/ardagnsrn/ollama-php)
+> [!WARNING]  
+> This library is not fully implemented yet. It is still under development. Please do not use it in production.
 
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
+## Buy me a coffee
 
-## Support us
+Whether you use this project, have learned something from it, or just like it, please consider supporting it by buying
+me a coffee, so I can dedicate more time on open-source projects like this :)
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/ollama-php.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/ollama-php)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+<a href="https://www.buymeacoffee.com/ardagnsrn" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 ## Installation
 
