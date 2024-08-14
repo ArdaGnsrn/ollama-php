@@ -108,6 +108,14 @@ it('can test', function () {
 //    $response = $client->models()->list();
 //    $response = $client->models()->show("llama3.1");
 //    $response = $client->models()->copy("llama3.1", "llama3.2");
-    $response = $client->models()->delete('llama3.2');
-    dd($response);
+//    $response = $client->models()->delete('llama3.2');
+    $response = $client->models()->runningList();
+
+//    $response = $client->embed()->create([
+//        'model' => 'llama3.1',
+//        'input' => [
+//            "Why is the sky blue?",
+//        ]
+//    ]);
+    dd($response->toArray());
 });

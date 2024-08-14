@@ -35,4 +35,9 @@ final class Ollama
     {
         return new Resources\Blobs($this->ollamaClient);
     }
+
+    public function embed(): Resources\Embed
+    {
+        return new Resources\Embed($this->ollamaClient);
+    }
 }

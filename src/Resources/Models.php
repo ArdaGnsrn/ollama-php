@@ -6,6 +6,7 @@ use ArdaGnsrn\Ollama\Contracts\ModelsContract;
 use ArdaGnsrn\Ollama\OllamaClient;
 use ArdaGnsrn\Ollama\Responses\Models\CreateModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\ListModelsResponse;
+use ArdaGnsrn\Ollama\Responses\Models\ListRunningModelsResponse;
 use ArdaGnsrn\Ollama\Responses\Models\PullModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\PushModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\ShowModelResponse;
@@ -107,5 +108,11 @@ final class Models implements ModelsContract
             'insecure' => $insecure,
         ], true);
         return new StreamResponse(PushModelResponse::class, $response);
+    }
+
+    public function runningList(): ListRunningModelsResponse
+    {
+        $response = $this->ollamaClient->get('ps');
+        return ListRunningModelsResponse::from($response);
     }
 }

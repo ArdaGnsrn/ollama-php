@@ -12,6 +12,7 @@ class ListModelsModelDetailsResponse implements ResponseContract
         public readonly string $parameterSize,
         public readonly string $quantizationLevel,
         public readonly array $families = [],
+        public readonly string $parentModel = '',
     )
     {
     }
@@ -24,6 +25,7 @@ class ListModelsModelDetailsResponse implements ResponseContract
             parameterSize: $attributes['parameter_size'],
             quantizationLevel: $attributes['quantization_level'],
             families: $attributes['families'],
+            parentModel: $attributes['parent_model'],
         );
     }
 
@@ -35,6 +37,7 @@ class ListModelsModelDetailsResponse implements ResponseContract
             'parameter_size' => $this->parameterSize,
             'quantization_level' => $this->quantizationLevel,
             'families' => $this->families,
+            'parent_model' => $this->parentModel,
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace ArdaGnsrn\Ollama\Contracts;
 
 use ArdaGnsrn\Ollama\Responses\Models\CreateModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\ListModelsResponse;
+use ArdaGnsrn\Ollama\Responses\Models\ListRunningModelsResponse;
 use ArdaGnsrn\Ollama\Responses\Models\PullModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\PushModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\ShowModelResponse;
@@ -30,4 +31,6 @@ interface ModelsContract
     public function push(string $modelName, bool $insecure = false): PushModelResponse;
 
     public function pushStreamed(string $modelName, bool $insecure = false): StreamResponse;
+
+    public function runningList(): ListRunningModelsResponse;
 }
