@@ -1,9 +1,16 @@
 {
     "name": "ardagnsrn/ollama-php",
-    "description": "This is my package ollama-php",
+    "description": "This is a PHP library for Ollama. Ollama is an open-source project that serves as a powerful and user-friendly platform for running LLMs on your local machine. It acts as a bridge between the complexities of LLM technology and the desire for an accessible and customizable AI experience.",
     "keywords": [
         "ArdaGnsrn",
-        "ollama-php"
+        "ollama-php",
+        "llm",
+        "llama",
+        "ai",
+        "ollama",
+        "gemma2",
+        "llama3.1",
+        "mistral"
     ],
     "homepage": "https://github.com/ardagnsrn/ollama-php",
     "license": "MIT",
