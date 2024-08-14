@@ -52,7 +52,7 @@ me a coffee, so I can dedicate more time on open-source projects like this :)
 
 > You can find Official Ollama documentation [here](https://github.com/ollama/ollama/blob/main/docs/api.md).
 
-First, install OpenAI via the [Composer](https://getcomposer.org/) package manager:
+First, install Ollama PHP via the [Composer](https://getcomposer.org/) package manager:
 
 ```bash
 composer require ardagnsrn/ollama-php
