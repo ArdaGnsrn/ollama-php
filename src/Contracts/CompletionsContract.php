@@ -3,6 +3,7 @@
 namespace ArdaGnsrn\Ollama\Contracts;
 
 use ArdaGnsrn\Ollama\Responses\CompletionResponse;
+use ArdaGnsrn\Ollama\Responses\StreamResponse;
 
 interface CompletionsContract
 {
@@ -14,5 +15,14 @@ interface CompletionsContract
      *
      * @return CompletionResponse
      */
-    public function create(array $parameters, bool $stream = false): CompletionResponse;
+    public function create(array $parameters): CompletionResponse;
+
+    /**
+     * Create a new completion and stream the response.
+     *
+     * @param array $parameters
+     *
+     * @return StreamResponse
+     */
+    public function createStreamed(array $parameters): StreamResponse;
 }

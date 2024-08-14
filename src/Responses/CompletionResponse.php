@@ -11,13 +11,13 @@ class CompletionResponse implements ResponseContract
         public readonly string $createdAt,
         public readonly string $response,
         public readonly bool   $done,
-        public readonly string $doneReason,
-        public readonly int    $totalDuration,
-        public readonly int    $loadDuration,
-        public readonly int    $promptEvalCount,
-        public readonly int    $promptEvalDuration,
-        public readonly int    $evalCount,
-        public readonly int    $evalDuration,
+        public readonly ?string $doneReason,
+        public readonly ?int    $totalDuration,
+        public readonly ?int    $loadDuration,
+        public readonly ?int    $promptEvalCount,
+        public readonly ?int    $promptEvalDuration,
+        public readonly ?int    $evalCount,
+        public readonly ?int    $evalDuration,
     )
     {
     }
@@ -30,12 +30,12 @@ class CompletionResponse implements ResponseContract
             response: $attributes['response'],
             done: $attributes['done'],
             doneReason: $attributes['done_reason'],
-            totalDuration: $attributes['total_duration'],
-            loadDuration: $attributes['load_duration'],
-            promptEvalCount: $attributes['prompt_eval_count'],
-            promptEvalDuration: $attributes['prompt_eval_duration'],
-            evalCount: $attributes['eval_count'],
-            evalDuration: $attributes['eval_duration'],
+            totalDuration: $attributes['total_duration'] ?? null,
+            loadDuration: $attributes['load_duration'] ?? null,
+            promptEvalCount: $attributes['prompt_eval_count'] ?? null,
+            promptEvalDuration: $attributes['prompt_eval_duration'] ?? null,
+            evalCount: $attributes['eval_count'] ?? null,
+            evalDuration: $attributes['eval_duration'] ?? null,
         );
     }
 
