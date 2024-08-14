@@ -4,6 +4,12 @@ This is a PHP library for Ollama. Ollama is an open-source project that serves a
 for running LLMs on your local
 machine. It acts as a bridge between the complexities of LLM technology and the desire for an accessible and
 customizable AI experience.
+<p align="left">
+<a href="https://github.com/ardagnsrn/ollama-php/actions"><img alt="GitHub Workflow Status (main)" src="https://img.shields.io/github/actions/workflow/status/ardagnsrn/ollama-php/tests.yml?branch=master&label=tests&style=round-square"></a>
+<a href="https://packagist.org/packages/ardagnsrn/ollama-php"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/ardagnsrn/ollama-php"></a>
+<a href="https://packagist.org/packages/ardagnsrn/ollama-php"><img alt="Latest Version" src="https://img.shields.io/packagist/v/ardagnsrn/ollama-php"></a>
+<a href="https://packagist.org/packages/ardagnsrn/ollama-php"><img alt="License" src="https://img.shields.io/github/license/ardagnsrn/ollama-php"></a>
+</p>
 
 ## ☕️ Buy me a coffee
 
