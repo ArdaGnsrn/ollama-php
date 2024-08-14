@@ -15,7 +15,12 @@ class OllamaClient
         ]);
     }
 
-    public function post($endpoint, $parameters, $stream)
+    public function get($endpoint)
+    {
+        return $this->guzzleClient->get($endpoint);
+    }
+
+    public function post($endpoint, $parameters = [], $stream = false, $parseJson = true)
     {
         $response = $this->guzzleClient->post($endpoint, [
             'json' => [
@@ -25,7 +30,7 @@ class OllamaClient
             'stream' => $stream,
         ]);
 
-        if ($stream) return $response;
+        if ($stream || !$parseJson) return $response;
 
         return json_decode($response->getBody(), true);
     }

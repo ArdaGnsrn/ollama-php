@@ -85,12 +85,23 @@ it('can test', function () {
 //    }
 //    print_r("--------------------\n");
 
-    $response = $client->models()->create([
-        'name' => 'mario',
-        'modelfile' => "FROM llama3.1\nSYSTEM You are mario from Super Mario Bros."
-    ]);
+//    $response = $client->models()->create([
+//        'name' => 'mario',
+//        'modelfile' => "FROM llama3.1\nSYSTEM You are mario from Super Mario Bros."
+//    ]);
+//
+//    print_r("--------------------\n");
+//    print_r($response->toArray());
+//    print_r("--------------------\n");
 
+    $response = $client->blobs()->exists('sha256:a71c80fa5214000748fc48f97d7ea2abaa4fea9b7df29e98422e2fc9dfef0fa6');
     print_r("--------------------\n");
-    print_r($response->toArray());
+    print_r(intval($response));
     print_r("--------------------\n");
+
+//    $response = $client->blobs()->create('sha256:a71c80fa5214000748fc48f97d7ea2abaa4fea9b7df29e98422e2fc9dfef0fa6');
+//
+//    print_r("--------------------\n");
+//    print_r(intval($response));
+//    print_r("--------------------\n");
 });

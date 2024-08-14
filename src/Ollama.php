@@ -30,4 +30,9 @@ final class Ollama
     {
         return new Resources\Models($this->ollamaClient);
     }
+
+    public function blobs(): Resources\Blobs
+    {
+        return new Resources\Blobs($this->ollamaClient);
+    }
 }
