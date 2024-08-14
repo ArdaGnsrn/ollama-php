@@ -46,7 +46,7 @@ class CompletionResponse implements ResponseContract
             createdAt: $attributes['created_at'],
             response: $attributes['response'],
             done: $attributes['done'],
-            doneReason: $attributes['done_reason'],
+            doneReason: $attributes['done_reason'] ?? null,
             totalDuration: $attributes['total_duration'] ?? null,
             loadDuration: $attributes['load_duration'] ?? null,
             promptEvalCount: $attributes['prompt_eval_count'] ?? null,
