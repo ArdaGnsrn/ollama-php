@@ -9,6 +9,10 @@ use Psr\Http\Message\StreamInterface;
 
 class StreamResponse implements StreamResponseContract
 {
+    /**
+     * @param string $responseClass
+     * @param ResponseInterface $response
+     */
     public function __construct(
         private readonly string            $responseClass,
         private readonly ResponseInterface $response,
@@ -17,6 +21,10 @@ class StreamResponse implements StreamResponseContract
         //
     }
 
+    /**
+     * @return Generator
+     * @throws \JsonException
+     */
     public function getIterator(): Generator
     {
         while (!$this->response->getBody()->eof()) {

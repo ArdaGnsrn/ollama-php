@@ -3,10 +3,16 @@
 namespace ArdaGnsrn\Ollama\Responses\Models;
 
 use ArdaGnsrn\Ollama\Contracts\ResponseContract;
-use ArdaGnsrn\Ollama\Responses\Tags\TagsModelDetailsResponse;
 
 class ListModelsModelResponse implements ResponseContract
 {
+    /**
+     * @param string $name
+     * @param string $modifiedAt
+     * @param int $size
+     * @param string $digest
+     * @param ListModelsModelDetailsResponse $details
+     */
     private function __construct(
         public readonly string $name,
         public readonly string $modifiedAt,
@@ -17,6 +23,10 @@ class ListModelsModelResponse implements ResponseContract
     {
     }
 
+    /**
+     * @param array $attributes
+     * @return ListModelsModelResponse
+     */
     public static function from(array $attributes): ListModelsModelResponse
     {
         return new self(
@@ -28,6 +38,9 @@ class ListModelsModelResponse implements ResponseContract
         );
     }
 
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         return [

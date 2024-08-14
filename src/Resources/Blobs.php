@@ -7,14 +7,23 @@ use ArdaGnsrn\Ollama\OllamaClient;
 
 final class Blobs implements BlobsContract
 {
+    /**
+     * @var OllamaClient
+     */
     private OllamaClient $ollamaClient;
 
+    /**
+     * @param OllamaClient $ollamaClient
+     */
     public function __construct(OllamaClient $ollamaClient)
     {
         $this->ollamaClient = $ollamaClient;
     }
 
-
+    /**
+     * @param string $digest
+     * @return bool
+     */
     public function exists(string $digest): bool
     {
         try {
@@ -25,6 +34,10 @@ final class Blobs implements BlobsContract
         }
     }
 
+    /**
+     * @param string $digest
+     * @return bool
+     */
     public function create(string $digest): bool
     {
         $response = $this->ollamaClient->post("blobs/$digest", parseJson: false);

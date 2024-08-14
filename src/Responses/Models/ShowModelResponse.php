@@ -6,6 +6,13 @@ use ArdaGnsrn\Ollama\Contracts\ResponseContract;
 
 class ShowModelResponse implements ResponseContract
 {
+    /**
+     * @param string $modelfile
+     * @param string $parameters
+     * @param string $template
+     * @param ListModelsModelDetailsResponse $details
+     * @param array $modelInfo
+     */
     private function __construct(
         public readonly string $modelfile,
         public readonly string $parameters,
@@ -16,6 +23,10 @@ class ShowModelResponse implements ResponseContract
     {
     }
 
+    /**
+     * @param array $attributes
+     * @return ShowModelResponse
+     */
     public static function from(array $attributes): ShowModelResponse
     {
         return new self(
@@ -27,6 +38,9 @@ class ShowModelResponse implements ResponseContract
         );
     }
 
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         return [

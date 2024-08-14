@@ -6,6 +6,18 @@ use ArdaGnsrn\Ollama\Contracts\ResponseContract;
 
 class ChatResponse implements ResponseContract
 {
+    /**
+     * @param string $model
+     * @param string $createdAt
+     * @param ChatMessageResponse $message
+     * @param bool $done
+     * @param int|null $totalDuration
+     * @param int|null $loadDuration
+     * @param int|null $promptEvalCount
+     * @param int|null $promptEvalDuration
+     * @param int|null $evalCount
+     * @param int|null $evalDuration
+     */
     private function __construct(
         public readonly string              $model,
         public readonly string              $createdAt,
@@ -21,6 +33,10 @@ class ChatResponse implements ResponseContract
     {
     }
 
+    /**
+     * @param array $attributes
+     * @return ChatResponse
+     */
     public static function from(array $attributes): ChatResponse
     {
         return new self(
@@ -37,6 +53,9 @@ class ChatResponse implements ResponseContract
         );
     }
 
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         return [

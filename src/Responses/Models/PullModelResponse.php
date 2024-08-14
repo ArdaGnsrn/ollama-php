@@ -6,6 +6,12 @@ use ArdaGnsrn\Ollama\Contracts\ResponseContract;
 
 class PullModelResponse implements ResponseContract
 {
+    /**
+     * @param string $status
+     * @param string|null $digest
+     * @param int|null $total
+     * @param int|null $completed
+     */
     private function __construct(
         public readonly string $status,
         public readonly ?string $digest,
@@ -15,6 +21,10 @@ class PullModelResponse implements ResponseContract
     {
     }
 
+    /**
+     * @param array $attributes
+     * @return PullModelResponse
+     */
     public static function from(array $attributes): PullModelResponse
     {
         return new self(
@@ -25,6 +35,9 @@ class PullModelResponse implements ResponseContract
         );
     }
 
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         return [

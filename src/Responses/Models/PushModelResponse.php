@@ -6,6 +6,11 @@ use ArdaGnsrn\Ollama\Contracts\ResponseContract;
 
 class PushModelResponse implements ResponseContract
 {
+    /**
+     * @param string $status
+     * @param string|null $digest
+     * @param int|null $total
+     */
     private function __construct(
         public readonly string $status,
         public readonly ?string $digest,
@@ -14,6 +19,10 @@ class PushModelResponse implements ResponseContract
     {
     }
 
+    /**
+     * @param array $attributes
+     * @return PushModelResponse
+     */
     public static function from(array $attributes): PushModelResponse
     {
         return new self(
@@ -23,6 +32,9 @@ class PushModelResponse implements ResponseContract
         );
     }
 
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         return [

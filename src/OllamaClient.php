@@ -7,8 +7,14 @@ use Psr\Http\Message\ResponseInterface;
 
 class OllamaClient
 {
+    /**
+     * @var Client
+     */
     private Client $guzzleClient;
 
+    /**
+     * @param string $host
+     */
     public function __construct(string $host = 'http://localhost:11434')
     {
         $this->guzzleClient = new Client([
@@ -16,6 +22,13 @@ class OllamaClient
         ]);
     }
 
+    /**
+     * @param $endpoint
+     * @param $parameters
+     * @param $parseJson
+     * @return mixed|ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function get($endpoint, $parameters = [], $parseJson = true)
     {
         $response = $this->guzzleClient->get($endpoint, [
@@ -27,6 +40,14 @@ class OllamaClient
         return json_decode($response->getBody(), true);
     }
 
+    /**
+     * @param $endpoint
+     * @param $parameters
+     * @param $stream
+     * @param $parseJson
+     * @return mixed|ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function post($endpoint, $parameters = [], $stream = false, $parseJson = true)
     {
         $response = $this->guzzleClient->post($endpoint, [
@@ -42,6 +63,12 @@ class OllamaClient
         return json_decode($response->getBody(), true);
     }
 
+    /**
+     * @param $endpoint
+     * @param $parameters
+     * @return ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function delete($endpoint, $parameters = []): ResponseInterface
     {
         return $this->guzzleClient->delete($endpoint, [

@@ -6,6 +6,13 @@ use ArdaGnsrn\Ollama\Contracts\ResponseContract;
 
 class EmbedResponse implements ResponseContract
 {
+    /**
+     * @param string $model
+     * @param array $embeddings
+     * @param int $totalDuration
+     * @param int $loadDuration
+     * @param int $promptEvalCount
+     */
     private function __construct(
         public readonly string $model,
         public readonly array  $embeddings,
@@ -16,6 +23,10 @@ class EmbedResponse implements ResponseContract
     {
     }
 
+    /**
+     * @param array $attributes
+     * @return EmbedResponse
+     */
     public static function from(array $attributes): EmbedResponse
     {
         return new self(
@@ -27,6 +38,9 @@ class EmbedResponse implements ResponseContract
         );
     }
 
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         return [

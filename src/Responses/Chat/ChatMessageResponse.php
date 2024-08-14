@@ -6,6 +6,11 @@ use ArdaGnsrn\Ollama\Contracts\ResponseContract;
 
 class ChatMessageResponse implements ResponseContract
 {
+    /**
+     * @param string $role
+     * @param string $content
+     * @param array $toolCalls
+     */
     private function __construct(
         public readonly string $role,
         public readonly string $content,
@@ -14,6 +19,10 @@ class ChatMessageResponse implements ResponseContract
     {
     }
 
+    /**
+     * @param array $attributes
+     * @return ChatMessageResponse
+     */
     public static function from(array $attributes): ChatMessageResponse
     {
         return new self(
@@ -26,6 +35,9 @@ class ChatMessageResponse implements ResponseContract
         );
     }
 
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         return [

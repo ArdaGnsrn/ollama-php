@@ -6,6 +6,14 @@ use ArdaGnsrn\Ollama\Contracts\ResponseContract;
 
 class ListModelsModelDetailsResponse implements ResponseContract
 {
+    /**
+     * @param string $format
+     * @param string $family
+     * @param string $parameterSize
+     * @param string $quantizationLevel
+     * @param array $families
+     * @param string $parentModel
+     */
     private function __construct(
         public readonly string $format,
         public readonly string $family,
@@ -17,6 +25,10 @@ class ListModelsModelDetailsResponse implements ResponseContract
     {
     }
 
+    /**
+     * @param array $attributes
+     * @return ListModelsModelDetailsResponse
+     */
     public static function from(array $attributes): ListModelsModelDetailsResponse
     {
         return new self(
@@ -29,6 +41,9 @@ class ListModelsModelDetailsResponse implements ResponseContract
         );
     }
 
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         return [
