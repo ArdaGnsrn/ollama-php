@@ -11,8 +11,6 @@ interface CompletionsContract
      * Create a new completion.
      *
      * @param array $parameters
-     * @param bool $stream
-     *
      * @return CompletionResponse
      */
     public function create(array $parameters): CompletionResponse;
