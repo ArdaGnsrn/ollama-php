@@ -23,7 +23,7 @@ class ListModelsResponse implements ResponseContract
     {
         return new self(
             models: array_map(
-                fn (array $model) => ListModelsModelResponse::from($model),
+                fn(array $model) => ListModelsModelResponse::from($model),
                 $attributes['models'],
             ),
         );
@@ -36,7 +36,7 @@ class ListModelsResponse implements ResponseContract
     {
         return [
             'models' => array_map(
-                static fn (ListModelsModelResponse $model) => $model->toArray(),
+                static fn(ListModelsModelResponse $model) => $model->toArray(),
                 $this->models,
             ),
         ];

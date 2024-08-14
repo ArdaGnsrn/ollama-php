@@ -16,13 +16,13 @@ class ListRunningModelsModelResponse implements ResponseContract
      * @param int $sizeVram
      */
     private function __construct(
-        public readonly string $name,
-        public readonly string $model,
-        public readonly int $size,
-        public readonly string $digest,
+        public readonly string                         $name,
+        public readonly string                         $model,
+        public readonly int                            $size,
+        public readonly string                         $digest,
         public readonly ListModelsModelDetailsResponse $details,
-        public readonly string $expiresAt,
-        public readonly int $sizeVram,
+        public readonly string                         $expiresAt,
+        public readonly int                            $sizeVram,
     )
     {
     }

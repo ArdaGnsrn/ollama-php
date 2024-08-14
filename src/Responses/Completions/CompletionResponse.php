@@ -20,10 +20,10 @@ class CompletionResponse implements ResponseContract
      * @param int|null $evalDuration
      */
     private function __construct(
-        public readonly string $model,
-        public readonly string $createdAt,
-        public readonly string $response,
-        public readonly bool   $done,
+        public readonly string  $model,
+        public readonly string  $createdAt,
+        public readonly string  $response,
+        public readonly bool    $done,
         public readonly ?string $doneReason,
         public readonly ?int    $totalDuration,
         public readonly ?int    $loadDuration,

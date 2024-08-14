@@ -19,7 +19,7 @@ class ListModelsModelDetailsResponse implements ResponseContract
         public readonly string $family,
         public readonly string $parameterSize,
         public readonly string $quantizationLevel,
-        public readonly array $families = [],
+        public readonly array  $families = [],
         public readonly string $parentModel = '',
     )
     {

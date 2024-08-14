@@ -4,6 +4,7 @@ namespace ArdaGnsrn\Ollama\Resources;
 
 use ArdaGnsrn\Ollama\Contracts\BlobsContract;
 use ArdaGnsrn\Ollama\OllamaClient;
+use Exception;
 
 final class Blobs implements BlobsContract
 {
@@ -29,7 +30,7 @@ final class Blobs implements BlobsContract
         try {
             $response = $this->ollamaClient->get("blobs/$digest", parseJson: false);
             return $response->getStatusCode() === 200;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return false;
         }
     }

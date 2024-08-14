@@ -14,7 +14,7 @@ class ChatMessageResponse implements ResponseContract
     private function __construct(
         public readonly string $role,
         public readonly string $content,
-        public readonly array $toolCalls = [],
+        public readonly array  $toolCalls = [],
     )
     {
     }

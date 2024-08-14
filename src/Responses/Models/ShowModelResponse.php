@@ -14,11 +14,11 @@ class ShowModelResponse implements ResponseContract
      * @param array $modelInfo
      */
     private function __construct(
-        public readonly string $modelfile,
-        public readonly string $parameters,
-        public readonly string $template,
+        public readonly string                         $modelfile,
+        public readonly string                         $parameters,
+        public readonly string                         $template,
         public readonly ListModelsModelDetailsResponse $details,
-        public readonly array $modelInfo = [],
+        public readonly array                          $modelInfo = [],
     )
     {
     }

@@ -3,7 +3,9 @@
 namespace ArdaGnsrn\Ollama\Responses;
 
 use ArdaGnsrn\Ollama\Contracts\StreamResponseContract;
+use Exception;
 use Generator;
+use JsonException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
@@ -23,7 +25,7 @@ class StreamResponse implements StreamResponseContract
 
     /**
      * @return Generator
-     * @throws \JsonException
+     * @throws JsonException
      */
     public function getIterator(): Generator
     {
@@ -35,7 +37,7 @@ class StreamResponse implements StreamResponseContract
             $response = json_decode($line, true, flags: JSON_THROW_ON_ERROR);
 
             if (isset($response['error'])) {
-                throw new \Exception($response['error']);
+                throw new Exception($response['error']);
             }
 
             yield $this->responseClass::from($response);

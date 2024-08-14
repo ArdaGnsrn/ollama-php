@@ -6,6 +6,7 @@ use ArdaGnsrn\Ollama\Contracts\ChatContract;
 use ArdaGnsrn\Ollama\OllamaClient;
 use ArdaGnsrn\Ollama\Responses\Chat\ChatResponse;
 use ArdaGnsrn\Ollama\Responses\StreamResponse;
+use InvalidArgumentException;
 
 final class Chat implements ChatContract
 {
@@ -39,7 +40,7 @@ final class Chat implements ChatContract
     public function createStreamed(array $parameters): StreamResponse
     {
         if (isset($parameters['tools'])) {
-            throw new \InvalidArgumentException('You cannot use tools in streamed chat messages.');
+            throw new InvalidArgumentException('You cannot use tools in streamed chat messages.');
         }
 
         $response = $this->ollamaClient->post('chat', $parameters, true);

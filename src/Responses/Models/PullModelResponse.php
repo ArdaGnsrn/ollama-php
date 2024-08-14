@@ -13,10 +13,10 @@ class PullModelResponse implements ResponseContract
      * @param int|null $completed
      */
     private function __construct(
-        public readonly string $status,
+        public readonly string  $status,
         public readonly ?string $digest,
-        public readonly ?int $total,
-        public readonly ?int $completed,
+        public readonly ?int    $total,
+        public readonly ?int    $completed,
     )
     {
     }

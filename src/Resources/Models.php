@@ -11,6 +11,7 @@ use ArdaGnsrn\Ollama\Responses\Models\PullModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\PushModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\ShowModelResponse;
 use ArdaGnsrn\Ollama\Responses\StreamResponse;
+use Exception;
 
 final class Models implements ModelsContract
 {
@@ -84,7 +85,7 @@ final class Models implements ModelsContract
             ], parseJson: false);
 
             return in_array($response->getStatusCode(), [200, 201]);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return false;
         }
     }
@@ -100,7 +101,7 @@ final class Models implements ModelsContract
                 'name' => $modelName,
             ]);
             return in_array($response->getStatusCode(), [200, 204]);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return false;
         }
     }

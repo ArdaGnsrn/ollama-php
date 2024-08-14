@@ -12,9 +12,9 @@ class PushModelResponse implements ResponseContract
      * @param int|null $total
      */
     private function __construct(
-        public readonly string $status,
+        public readonly string  $status,
         public readonly ?string $digest,
-        public readonly ?int $total,
+        public readonly ?int    $total,
     )
     {
     }

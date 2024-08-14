@@ -14,10 +14,10 @@ class ListModelsModelResponse implements ResponseContract
      * @param ListModelsModelDetailsResponse $details
      */
     private function __construct(
-        public readonly string $name,
-        public readonly string $modifiedAt,
-        public readonly int $size,
-        public readonly string $digest,
+        public readonly string                         $name,
+        public readonly string                         $modifiedAt,
+        public readonly int                            $size,
+        public readonly string                         $digest,
         public readonly ListModelsModelDetailsResponse $details,
     )
     {

@@ -3,6 +3,7 @@
 namespace ArdaGnsrn\Ollama;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 
 class OllamaClient
@@ -27,7 +28,7 @@ class OllamaClient
      * @param $parameters
      * @param $parseJson
      * @return mixed|ResponseInterface
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function get($endpoint, $parameters = [], $parseJson = true)
     {
@@ -46,7 +47,7 @@ class OllamaClient
      * @param $stream
      * @param $parseJson
      * @return mixed|ResponseInterface
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function post($endpoint, $parameters = [], $stream = false, $parseJson = true)
     {
@@ -67,7 +68,7 @@ class OllamaClient
      * @param $endpoint
      * @param $parameters
      * @return ResponseInterface
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function delete($endpoint, $parameters = []): ResponseInterface
     {
