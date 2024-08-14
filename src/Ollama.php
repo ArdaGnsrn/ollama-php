@@ -20,4 +20,9 @@ final class Ollama
     {
         return new Resources\Completions($this->ollamaClient);
     }
+
+    public function chat(): Resources\Chat
+    {
+        return new Resources\Chat($this->ollamaClient);
+    }
 }

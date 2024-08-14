@@ -1,35 +1,33 @@
 <?php
 
-namespace ArdaGnsrn\Ollama\Responses;
+namespace ArdaGnsrn\Ollama\Responses\Chat;
 
 use ArdaGnsrn\Ollama\Contracts\ResponseContract;
 
-class CompletionResponse implements ResponseContract
+class ChatResponse implements ResponseContract
 {
     private function __construct(
-        public readonly string $model,
-        public readonly string $createdAt,
-        public readonly string $response,
-        public readonly bool   $done,
-        public readonly ?string $doneReason,
-        public readonly ?int    $totalDuration,
-        public readonly ?int    $loadDuration,
-        public readonly ?int    $promptEvalCount,
-        public readonly ?int    $promptEvalDuration,
-        public readonly ?int    $evalCount,
-        public readonly ?int    $evalDuration,
+        public readonly string              $model,
+        public readonly string              $createdAt,
+        public readonly ChatMessageResponse $message,
+        public readonly bool                $done,
+        public readonly ?int                $totalDuration,
+        public readonly ?int                $loadDuration,
+        public readonly ?int                $promptEvalCount,
+        public readonly ?int                $promptEvalDuration,
+        public readonly ?int                $evalCount,
+        public readonly ?int                $evalDuration,
     )
     {
     }
 
-    public static function from(array $attributes): CompletionResponse
+    public static function from(array $attributes): ChatResponse
     {
         return new self(
             model: $attributes['model'],
             createdAt: $attributes['created_at'],
-            response: $attributes['response'],
+            message: ChatMessageResponse::from($attributes['message']),
             done: $attributes['done'],
-            doneReason: $attributes['done_reason'],
             totalDuration: $attributes['total_duration'] ?? null,
             loadDuration: $attributes['load_duration'] ?? null,
             promptEvalCount: $attributes['prompt_eval_count'] ?? null,
@@ -44,9 +42,8 @@ class CompletionResponse implements ResponseContract
         return [
             'model' => $this->model,
             'created_at' => $this->createdAt,
-            'response' => $this->response,
+            'message' => $this->message->toArray(),
             'done' => $this->done,
-            'done_reason' => $this->doneReason,
             'total_duration' => $this->totalDuration,
             'load_duration' => $this->loadDuration,
             'prompt_eval_count' => $this->promptEvalCount,
@@ -55,5 +52,4 @@ class CompletionResponse implements ResponseContract
             'eval_duration' => $this->evalDuration,
         ];
     }
-
 }

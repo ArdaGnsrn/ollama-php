@@ -4,7 +4,7 @@ namespace ArdaGnsrn\Ollama\Resources;
 
 use ArdaGnsrn\Ollama\Contracts\CompletionsContract;
 use ArdaGnsrn\Ollama\OllamaClient;
-use ArdaGnsrn\Ollama\Responses\CompletionResponse;
+use ArdaGnsrn\Ollama\Responses\Completions\CompletionResponse;
 use ArdaGnsrn\Ollama\Responses\StreamResponse;
 
 final class Completions implements CompletionsContract

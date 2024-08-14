@@ -2,7 +2,7 @@
 
 namespace ArdaGnsrn\Ollama\Contracts;
 
-use ArdaGnsrn\Ollama\Responses\CompletionResponse;
+use ArdaGnsrn\Ollama\Responses\Completions\CompletionResponse;
 use ArdaGnsrn\Ollama\Responses\StreamResponse;
 
 interface CompletionsContract
