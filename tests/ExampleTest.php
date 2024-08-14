@@ -94,14 +94,20 @@ it('can test', function () {
 //    print_r($response->toArray());
 //    print_r("--------------------\n");
 
-    $response = $client->blobs()->exists('sha256:a71c80fa5214000748fc48f97d7ea2abaa4fea9b7df29e98422e2fc9dfef0fa6');
-    print_r("--------------------\n");
-    print_r(intval($response));
-    print_r("--------------------\n");
+//    $response = $client->blobs()->exists('sha256:a71c80fa5214000748fc48f97d7ea2abaa4fea9b7df29e98422e2fc9dfef0fa6');
+//    print_r("--------------------\n");
+//    print_r(intval($response));
+//    print_r("--------------------\n");
 
 //    $response = $client->blobs()->create('sha256:a71c80fa5214000748fc48f97d7ea2abaa4fea9b7df29e98422e2fc9dfef0fa6');
 //
 //    print_r("--------------------\n");
 //    print_r(intval($response));
 //    print_r("--------------------\n");
+
+//    $response = $client->models()->list();
+//    $response = $client->models()->show("llama3.1");
+//    $response = $client->models()->copy("llama3.1", "llama3.2");
+    $response = $client->models()->delete('llama3.2');
+    dd($response);
 });

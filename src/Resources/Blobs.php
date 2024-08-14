@@ -18,7 +18,7 @@ final class Blobs implements BlobsContract
     public function exists(string $digest): bool
     {
         try {
-            $response = $this->ollamaClient->get("blobs/$digest");
+            $response = $this->ollamaClient->get("blobs/$digest", parseJson: false);
             return $response->getStatusCode() === 200;
         } catch (\Exception $e) {
             return false;
