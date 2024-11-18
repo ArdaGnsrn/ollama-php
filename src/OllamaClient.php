@@ -16,10 +16,13 @@ class OllamaClient
     /**
      * @param string $host
      */
-    public function __construct(string $host = 'http://localhost:11434')
+    public function __construct(string $host = 'http://localhost:11434', string $apiKey = '')
     {
         $this->guzzleClient = new Client([
             'base_uri' => "$host/api/",
+            'headers' => [
+                'Authorization' => "Bearer $apiKey",
+            ],
         ]);
     }
 
