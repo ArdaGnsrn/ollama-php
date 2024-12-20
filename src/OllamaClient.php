@@ -15,8 +15,12 @@ class OllamaClient
 
     /**
      * @param string $host
+     * @param string $apiKey
      */
-    public function __construct(string $host = 'http://localhost:11434', string $apiKey = '')
+    public function __construct(
+        private readonly string $host = 'http://localhost:11434',
+        string $apiKey = '',
+    )
     {
         $this->guzzleClient = new Client([
             'base_uri' => "$host/api/",
@@ -24,6 +28,22 @@ class OllamaClient
                 'Authorization' => "Bearer $apiKey",
             ],
         ]);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRunning(): bool
+    {
+        try {
+            $client = new Client(['base_uri' => $this->host]);
+            $res = $client->get('/');
+            $content = $res->getBody()->getContents();
+
+            return $content === 'Ollama is running';
+        } catch (GuzzleException $ex) {
+            return false;
+        }
     }
 
     /**

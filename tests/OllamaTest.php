@@ -49,4 +49,14 @@ it('has models', function () {
     expect($client->models())->toBeInstanceOf(Models::class);
 });
 
+it('can tell when ollama is running', function () {
+   $client = Ollama::client();
 
+   expect($client->isRunning())->toBeTrue();
+});
+
+it('can tell when ollama is not running', function () {
+   $client = Ollama::client('http://localhost:9999/not_ollama');
+
+   expect($client->isRunning())->toBeFalse();
+});

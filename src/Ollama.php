@@ -65,4 +65,9 @@ final class Ollama
     {
         return new Resources\Embed($this->ollamaClient);
     }
+
+    public function isRunning(): bool
+    {
+        return $this->ollamaClient->isRunning();
+    }
 }
