@@ -36,7 +36,7 @@ class ListModelsModelDetailsResponse implements ResponseContract
             family: $attributes['family'],
             parameterSize: $attributes['parameter_size'],
             quantizationLevel: $attributes['quantization_level'],
-            families: $attributes['families'],
+            families: $attributes['families'] ?? [],
             parentModel: $attributes['parent_model'],
         );
     }
