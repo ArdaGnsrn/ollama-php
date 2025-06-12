@@ -12,7 +12,7 @@ class CompletionResponse implements ResponseContract
      * @param string $response
      * @param bool $done
      * @param string|null $doneReason
-     * @param int|null $totalDuration
+     * @param int|float|null $totalDuration
      * @param int|null $loadDuration
      * @param int|null $promptEvalCount
      * @param int|null $promptEvalDuration
@@ -20,17 +20,17 @@ class CompletionResponse implements ResponseContract
      * @param int|null $evalDuration
      */
     private function __construct(
-        public readonly string  $model,
-        public readonly string  $createdAt,
-        public readonly string  $response,
-        public readonly bool    $done,
-        public readonly ?string $doneReason,
-        public readonly ?int    $totalDuration,
-        public readonly ?int    $loadDuration,
-        public readonly ?int    $promptEvalCount,
-        public readonly ?int    $promptEvalDuration,
-        public readonly ?int    $evalCount,
-        public readonly ?int    $evalDuration,
+        public readonly string         $model,
+        public readonly string         $createdAt,
+        public readonly string         $response,
+        public readonly bool           $done,
+        public readonly ?string        $doneReason,
+        public readonly int|float|null $totalDuration,
+        public readonly ?int           $loadDuration,
+        public readonly ?int           $promptEvalCount,
+        public readonly ?int           $promptEvalDuration,
+        public readonly ?int           $evalCount,
+        public readonly ?int           $evalDuration,
     )
     {
     }
