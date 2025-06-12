@@ -15,19 +15,24 @@ class OllamaClient
 
     /**
      * @param string $host
-     * @param string $apiKey
+     * @param string|null $apiKey
      */
     public function __construct(
-        private readonly string $host = 'http://localhost:11434',
-        string $apiKey = '',
+        private string           $host = 'http://localhost:11434',
+        private readonly ?string $apiKey = null,
     )
     {
-        $this->guzzleClient = new Client([
-            'base_uri' => "$host/api/",
-            'headers' => [
-                'Authorization' => "Bearer $apiKey",
-            ],
-        ]);
+        $this->host = rtrim($host, '/');
+        $this->guzzleClient = new Client($this->clientOptions());
+    }
+
+    private function clientOptions(): array
+    {
+        $opts = ['base_uri' => "{$this->host}/api/"];
+        if ($this->apiKey !== null) {
+            $opts['headers'] = ['Authorization' => "Bearer {$this->apiKey}"];
+        }
+        return $opts;
     }
 
     /**
