@@ -81,4 +81,16 @@ interface ModelsContract
      * @return ListRunningModelsResponse
      */
     public function runningList(): ListRunningModelsResponse;
+
+    /**
+     * @param string $modelName
+     * @return LoadResponse
+     */
+    public function load(string $modelName): LoadResponse;
+
+    /**
+     * @param string $modelName
+     * @return UnloadResponse
+     */
+    public function unload(string $modelName): UnloadResponse;
 }
