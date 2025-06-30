@@ -194,7 +194,7 @@ final class Models implements ModelsContract
     public function unload(string $modelName): UnloadModelResponse
     {
         $response = $this->ollamaClient->post('generate', [
-            'name' => $modelName,
+            'model' => $modelName,
             'keep_alive' => 0,
         ]);
         return UnloadModelResponse::from($response);
