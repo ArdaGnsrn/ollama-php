@@ -8,6 +8,9 @@ use ArdaGnsrn\Ollama\Responses\Models\ListRunningModelsResponse;
 use ArdaGnsrn\Ollama\Responses\Models\PullModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\PushModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\ShowModelResponse;
+use ArdaGnsrn\Ollama\Responses\Models\LoadModelResponse;
+use ArdaGnsrn\Ollama\Responses\Models\UnloadModelResponse;
+
 use ArdaGnsrn\Ollama\Responses\StreamResponse;
 
 interface ModelsContract
@@ -86,11 +89,12 @@ interface ModelsContract
      * @param string $modelName
      * @return LoadResponse
      */
-    public function load(string $modelName): LoadResponse;
+    public function load(string $modelName): LoadModelResponse;
 
     /**
      * @param string $modelName
      * @return UnloadResponse
      */
-    public function unload(string $modelName): UnloadResponse;
+    public function unload(string $modelName): UnloadModelResponse;
+
 }
