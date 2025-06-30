@@ -6,6 +6,8 @@ use ArdaGnsrn\Ollama\Resources\Chat;
 use ArdaGnsrn\Ollama\Resources\Completions;
 use ArdaGnsrn\Ollama\Resources\Embed;
 use ArdaGnsrn\Ollama\Resources\Models;
+use ArdaGnsrn\Ollama\Responses\Models\LoadModelResponse;
+use ArdaGnsrn\Ollama\Responses\Models\UnloadModelResponse;
 
 it('may create a client', function () {
     $client = Ollama::client();
@@ -60,3 +62,26 @@ it('can tell when ollama is not running', function () {
 
    expect($client->isRunning())->toBeFalse();
 });
+
+it('can load a model', function () {
+    $client = Ollama::client();
+
+    $result = $client->models()->load('llama3.1');
+
+    expect($result)
+        ->toBeInstanceOf(LoadModelResponse::class)
+        ->model->toBeString()->toBe('llama3.1')
+        ->done->toBeBool()->toBeTrue();
+});
+
+it('can unload a model', function () {
+    $client = Ollama::client();
+
+    $result = $client->models()->unload('llama3.1');
+
+    expect($result)
+        ->toBeInstanceOf(UnloadModelResponse::class)
+        ->model->toBeString()->toBe('llama3.1')
+        ->done->toBeBool()->toBeTrue();
+});
+
