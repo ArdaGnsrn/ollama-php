@@ -181,23 +181,21 @@ final class Models implements ModelsContract
      */
     public function load(string $modelName, bool $verbose = false): LoadModelResponse
     {
-        $response = $this->ollamaClient->post('load', [
-            'name' => $modelName,
-            'verbose' => $verbose,
+        $response = $this->ollamaClient->post('generate', [
+            'model' => $modelName,
         ]);
         return LoadModelResponse::from($response);
     }
 
     /**
      * @param string $modelName
-     * @param bool $verbose
      * @return UnloadModelResponse
      */
-    public function unload(string $modelName, bool $verbose = false): UnloadModelResponse
+    public function unload(string $modelName): UnloadModelResponse
     {
-        $response = $this->ollamaClient->post('unload', [
+        $response = $this->ollamaClient->post('generate', [
             'name' => $modelName,
-            'verbose' => $verbose,
+            'keep_alive' => 0,
         ]);
         return UnloadModelResponse::from($response);
     }

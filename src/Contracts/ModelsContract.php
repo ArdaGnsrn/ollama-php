@@ -87,13 +87,13 @@ interface ModelsContract
 
     /**
      * @param string $modelName
-     * @return LoadResponse
+     * @return LoadModelResponse
      */
     public function load(string $modelName): LoadModelResponse;
 
     /**
      * @param string $modelName
-     * @return UnloadResponse
+     * @return UnloadModelResponse
      */
     public function unload(string $modelName): UnloadModelResponse;
 
