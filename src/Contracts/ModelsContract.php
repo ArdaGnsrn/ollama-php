@@ -10,7 +10,6 @@ use ArdaGnsrn\Ollama\Responses\Models\PushModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\ShowModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\LoadModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\UnloadModelResponse;
-
 use ArdaGnsrn\Ollama\Responses\StreamResponse;
 
 interface ModelsContract
