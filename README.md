@@ -39,6 +39,8 @@ me a coffee, so I can dedicate more time on open-source projects like this :)
         - [push()](#push)
         - [pushStreamed()](#pushstreamed)
         - [runningList()](#runninglist)
+        - [load()](#load)
+        - [unload()](#unload)
     - [Blobs Resource](#blobs-resource)
         - [exists()](#exists)
         - [create()](#create-3)
@@ -320,6 +322,26 @@ List all running models.
 $response = $client->models()->runningList();
 
 $response->toArray(); // ['models' => [['name' => 'llama3.1', ...], ['name' => 'llama3.1:80b', ...], ...]]
+```
+
+### `load`
+
+Load a model into memory.
+
+```php
+$response = $client->models()->load('llama3.1');
+
+$response->toArray(); // ['model' => 'llama3.1', 'created_at' => '2023-11-04T12:34:56.789Z', 'response' => '', 'done' => true]
+```
+
+### `unload`
+
+Unload a model from memory.
+
+```php
+$response = $client->models()->unload('llama3.1');
+
+$response->toArray(); // ['model' => 'llama3.1', 'created_at' => '2023-11-04T12:34:56.789Z', 'response' => '', 'done' => true, 'done_reason' => 'model_unloaded']
 ```
 
 ### `Blobs` Resource

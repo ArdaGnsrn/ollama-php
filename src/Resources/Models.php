@@ -10,6 +10,8 @@ use ArdaGnsrn\Ollama\Responses\Models\ListRunningModelsResponse;
 use ArdaGnsrn\Ollama\Responses\Models\PullModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\PushModelResponse;
 use ArdaGnsrn\Ollama\Responses\Models\ShowModelResponse;
+use ArdaGnsrn\Ollama\Responses\Models\LoadModelResponse;
+use ArdaGnsrn\Ollama\Responses\Models\UnloadModelResponse;
 use ArdaGnsrn\Ollama\Responses\StreamResponse;
 use Exception;
 
@@ -170,4 +172,31 @@ final class Models implements ModelsContract
         $response = $this->ollamaClient->get('ps');
         return ListRunningModelsResponse::from($response);
     }
+
+    /**
+     * @param string $modelName
+     * @param bool $verbose
+     * @return LoadModelResponse
+     */
+    public function load(string $modelName, bool $verbose = false): LoadModelResponse
+    {
+        $response = $this->ollamaClient->post('generate', [
+            'model' => $modelName,
+        ]);
+        return LoadModelResponse::from($response);
+    }
+
+    /**
+     * @param string $modelName
+     * @return UnloadModelResponse
+     */
+    public function unload(string $modelName): UnloadModelResponse
+    {
+        $response = $this->ollamaClient->post('generate', [
+            'model' => $modelName,
+            'keep_alive' => 0,
+        ]);
+        return UnloadModelResponse::from($response);
+    }
+
 }
