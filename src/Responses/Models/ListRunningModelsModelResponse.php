@@ -14,6 +14,7 @@ class ListRunningModelsModelResponse implements ResponseContract
      * @param ListModelsModelDetailsResponse $details
      * @param string $expiresAt
      * @param int $sizeVram
+     * @param int|null $contextLength
      */
     private function __construct(
         public readonly string                         $name,
@@ -23,6 +24,7 @@ class ListRunningModelsModelResponse implements ResponseContract
         public readonly ListModelsModelDetailsResponse $details,
         public readonly string                         $expiresAt,
         public readonly int                            $sizeVram,
+        public readonly ?int                           $contextLength = null,
     )
     {
     }
@@ -41,6 +43,7 @@ class ListRunningModelsModelResponse implements ResponseContract
             details: ListModelsModelDetailsResponse::from($attributes['details']),
             expiresAt: $attributes['expires_at'],
             sizeVram: $attributes['size_vram'],
+            contextLength: $attributes['context_length'] ?? null,
         );
     }
 
@@ -49,7 +52,7 @@ class ListRunningModelsModelResponse implements ResponseContract
      */
     public function toArray(): array
     {
-        return [
+        return array_filter([
             'name' => $this->name,
             'model' => $this->model,
             'size' => $this->size,
@@ -57,6 +60,7 @@ class ListRunningModelsModelResponse implements ResponseContract
             'details' => $this->details->toArray(),
             'expires_at' => $this->expiresAt,
             'size_vram' => $this->sizeVram,
-        ];
+            'context_length' => $this->contextLength,
+        ], static fn($value): bool => $value !== null);
     }
 }
