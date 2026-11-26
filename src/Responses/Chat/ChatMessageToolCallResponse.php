@@ -8,9 +8,11 @@ class ChatMessageToolCallResponse implements ResponseContract
 {
     /**
      * @param ChatMessageToolCallFunctionResponse $function
+     * @param string|null $id
      */
     private function __construct(
         public readonly ChatMessageToolCallFunctionResponse $function,
+        public readonly ?string $id = null,
     )
     {
     }
@@ -23,6 +25,7 @@ class ChatMessageToolCallResponse implements ResponseContract
     {
         return new self(
             function: ChatMessageToolCallFunctionResponse::from($attributes['function']),
+            id: $attributes['id'] ?? null,
         );
     }
 
@@ -31,8 +34,9 @@ class ChatMessageToolCallResponse implements ResponseContract
      */
     public function toArray(): array
     {
-        return [
+        return array_filter([
+            'id' => $this->id,
             'function' => $this->function->toArray(),
-        ];
+        ], static fn($value): bool => $value !== null);
     }
 }
