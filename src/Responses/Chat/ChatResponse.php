@@ -17,6 +17,7 @@ class ChatResponse implements ResponseContract
      * @param int|null $promptEvalDuration
      * @param int|null $evalCount
      * @param int|null $evalDuration
+     * @param int|null $promptEvalCachedCount
      */
     private function __construct(
         public readonly string              $model,
@@ -29,6 +30,7 @@ class ChatResponse implements ResponseContract
         public readonly ?int                $promptEvalDuration,
         public readonly ?int                $evalCount,
         public readonly ?int                $evalDuration,
+        public readonly ?int                $promptEvalCachedCount = null,
     )
     {
     }
@@ -50,6 +52,7 @@ class ChatResponse implements ResponseContract
             promptEvalDuration: $attributes['prompt_eval_duration'] ?? null,
             evalCount: $attributes['eval_count'] ?? null,
             evalDuration: $attributes['eval_duration'] ?? null,
+            promptEvalCachedCount: $attributes['prompt_eval_cached_count'] ?? null,
         );
     }
 
@@ -58,7 +61,7 @@ class ChatResponse implements ResponseContract
      */
     public function toArray(): array
     {
-        return [
+        $array = [
             'model' => $this->model,
             'created_at' => $this->createdAt,
             'message' => $this->message->toArray(),
@@ -70,5 +73,11 @@ class ChatResponse implements ResponseContract
             'eval_count' => $this->evalCount,
             'eval_duration' => $this->evalDuration,
         ];
+
+        if ($this->promptEvalCachedCount !== null) {
+            $array['prompt_eval_cached_count'] = $this->promptEvalCachedCount;
+        }
+
+        return $array;
     }
 }
